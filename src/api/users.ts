@@ -50,8 +50,9 @@ export default {
 
 //1. 회원가입
 //회원등록 POST/users
-//이메일 인증 코드 발송
-//이메일 인증 코듸 검증
+//이메일 인증 코드 발송 = POST, /verify-codes
+//이메일 인증 코드 검증 = 인증코드 읽기 GET, / verify-codes/:code
+
 //2. 로그인 (토큰 발급)  POST / auth
 //암호화 -> 복호화 가능
 //해시화

@@ -14,7 +14,7 @@ const registerAllApis = async (
     configs: { [key: string]: apiConfigType }
 ) => {
     for (const apiName in configs) {
-        const apiConfig = configs[apiName] ////config가 api.ts에서 설정 정보 가져오기
+        const apiConfig: apiConfigType = configs[apiName] ////config가 api.ts에서 설정 정보 가져오기
 
         const {
             path: urlPath,
@@ -41,7 +41,8 @@ const registerAllApis = async (
         ) => {
             const req = request as RequestWithConnection
             const res = response
-            const params = req.body
+
+            const params = Object.assign({}, req.body, req.params, req.query)
             const connection = req.mysqlConnection
 
             handlerFunction(params, connection)
